@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz interativo sobre Cybersegurança e Segurança de Computadores.">
+  <title>Quiz: Cybersegurança & Segurança de Computadores</title>
+  
+  <!-- Google Fonts: Space Grotesk & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Cyber Elements -->
+  <div class="cyber-bg-grid" aria-hidden="true"></div>
+  <div class="cyber-glow-blob blob-1" aria-hidden="true"></div>
+  <div class="cyber-glow-blob blob-2" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M12 8v4"/>
+            <path d="M12 16h.01"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-tag">SEGURANÇA DE PCS</span>
+          <h1 class="brand-title">CYBERSEGURANÇA</h1>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="soundToggleBtn" class="hud-btn" type="button" aria-label="Ativar ou desativar efeitos sonoros" title="Efeitos Sonoros">
+          <svg class="sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          <svg class="sound-icon-off hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+          <span class="btn-text">Áudio: <strong id="soundStateLabel">Ligado</strong></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content">
+    
+    <!-- SCREEN 1: WELCOME / INTRO -->
+    <section id="welcomeScreen" class="screen-view active-view" aria-labelledby="welcomeTitle">
+      <div class="card intro-card">
+        <div class="cyber-corner top-left"></div>
+        <div class="cyber-corner top-right"></div>
+        <div class="cyber-corner bottom-left"></div>
+        <div class="cyber-corner bottom-right"></div>
+
+        <div class="intro-badge">
+          <span class="pulse-dot"></span>
+          <span>Desafio de Fixação • 10 Perguntas</span>
+        </div>
+
+        <h2 id="welcomeTitle" class="intro-title">Você está seguro na era digital?</h2>
+        <p class="intro-desc">
+          Teste seus conhecimentos com base no slide de apresentação sobre <strong>Cybersegurança e Segurança de Computadores</strong>. Descubra se você sabe reconhecer ameaças, proteger suas senhas e manter bons hábitos digitais.
+        </p>
+
+        <!-- Topic Chips with SVGs (No emojis) -->
+        <div class="topics-grid">
+          <div class="topic-chip">
+            <span class="topic-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </span>
+            <div>
+              <strong>Segurança de PCs</strong>
+              <small>Conceito & Práticas</small>
+            </div>
+          </div>
+          <div class="topic-chip">
+            <span class="topic-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </span>
+            <div>
+              <strong>Papel do Usuário</strong>
+              <small>Atenção & Cuidado</small>
+            </div>
+          </div>
+          <div class="topic-chip">
+            <span class="topic-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="8" height="14" x="8" y="6" rx="4"/>
+                <path d="m19 7-3 2"/>
+                <path d="m5 7 3 2"/>
+                <path d="m19 19-3-2"/>
+                <path d="m5 19 3-2"/>
+                <path d="M20 13h-4"/>
+                <path d="M4 13h4"/>
+              </svg>
+            </span>
+            <div>
+              <strong>Malware & Ransomware</strong>
+              <small>Principais Ameaças</small>
+            </div>
+          </div>
+          <div class="topic-chip">
+            <span class="topic-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </span>
+            <div>
+              <strong>Phishing & Eng. Social</strong>
+              <small>Golpes & Como Evitar</small>
+            </div>
+          </div>
+          <div class="topic-chip">
+            <span class="topic-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2l-2 2m-1.5 1.5L14 9l-2-2-4 4 2 2-3 3-2-2-3 3a4.24 4.24 0 0 0 6 6l3-3-2-2 3-3 2 2 4-4-2-2 3.5-3.5a1.5 1.5 0 0 0-2.12-2.12z"/>
+              </svg>
+            </span>
+            <div>
+              <strong>Senhas & MFA</strong>
+              <small>Autenticação Forte</small>
+            </div>
+          </div>
+          <div class="topic-chip">
+            <span class="topic-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                <line x1="12" y1="20" x2="12.01" y2="20"/>
+              </svg>
+            </span>
+            <div>
+              <strong>Wi-Fi, USB & Atualizações</strong>
+              <small>Hábitos do Dia a Dia</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rules Box with SVGs (No emojis) -->
+        <div class="rules-card">
+          <h3 class="rules-title">Como funciona o Quiz:</h3>
+          <ul class="rules-list">
+            <li>
+              <span class="rule-icon icon-success">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              <span><strong>Alternativa correta:</strong> Fica preenchida em <span class="badge-green">VERDE</span> imediatamente.</span>
+            </li>
+            <li>
+              <span class="rule-icon icon-danger">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </span>
+              <span><strong>Alternativa errada:</strong> Fica preenchida em <span class="badge-red">VERMELHO</span> e a resposta certa é revelada.</span>
+            </li>
+            <li>
+              <span class="rule-icon icon-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
+                  <path d="M9 18h6"/>
+                  <path d="M10 22h4"/>
+                </svg>
+              </span>
+              <span><strong>Feedback educativo:</strong> Cada questão apresenta a explicação do slide correspondente.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="intro-footer">
+          <button id="startQuizBtn" class="cyber-btn primary-btn" type="button">
+            <span>INICIAR O QUIZ</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: ACTIVE QUIZ -->
+    <section id="quizScreen" class="screen-view hidden" aria-labelledby="questionTitle">
+      
+      <!-- Quiz HUD Header -->
+      <div class="quiz-hud">
+        <div class="hud-top">
+          <div class="hud-step">
+            <span class="hud-label">PERGUNTA</span>
+            <span class="hud-value"><span id="currentQuestionNum">1</span><small>/10</small></span>
+          </div>
+
+          <div class="hud-category" id="questionCategory">
+            <span class="category-icon" id="categoryIcon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </span>
+            <span id="questionCategoryText">Ameaças Digitais</span>
+          </div>
+
+          <div class="hud-score">
+            <span class="hud-label">ACERTOS</span>
+            <span class="hud-value score-accent" id="currentScoreDisplay">0</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-track" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" id="quizProgressBar">
+          <div class="progress-fill" id="progressBarFill" style="width: 10%;"></div>
+        </div>
+      </div>
+
+      <!-- Question Card -->
+      <div class="card question-card">
+        <div class="cyber-corner top-left"></div>
+        <div class="cyber-corner top-right"></div>
+        <div class="cyber-corner bottom-left"></div>
+        <div class="cyber-corner bottom-right"></div>
+
+        <div class="question-header">
+          <span class="question-badge" id="slideReferenceBadge">Slide 2 • Segurança de PCs</span>
+          <h2 id="questionTitle" class="question-text">Carregando pergunta...</h2>
+        </div>
+
+        <!-- Options Container -->
+        <div class="options-grid" id="optionsContainer" role="radiogroup" aria-labelledby="questionTitle">
+          <!-- Dynamically populated options -->
+        </div>
+
+        <!-- Feedback Box -->
+        <div class="feedback-card hidden" id="feedbackCard">
+          <div class="feedback-header">
+            <div class="feedback-status-badge" id="feedbackStatusBadge">
+              <span class="feedback-icon" id="feedbackIcon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </span>
+              <span class="feedback-status-text" id="feedbackStatusText">Resposta Correta!</span>
+            </div>
+            <span class="feedback-source" id="feedbackSource">Baseado no Slide 2</span>
+          </div>
+          <p class="feedback-explanation" id="feedbackExplanation">
+            Explicação detalhada...
+          </p>
+        </div>
+
+        <!-- Question Actions -->
+        <div class="question-footer">
+          <div class="question-hint-text" id="selectionHint">
+            Selecione uma das 4 opções acima para responder.
+          </div>
+          <button id="nextQuestionBtn" class="cyber-btn next-btn hidden" type="button">
+            <span id="nextBtnText">PRÓXIMA PERGUNTA</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: RESULTS / SUMMARY -->
+    <section id="resultsScreen" class="screen-view hidden" aria-labelledby="resultsTitle">
+      <div class="card results-card">
+        <div class="cyber-corner top-left"></div>
+        <div class="cyber-corner top-right"></div>
+        <div class="cyber-corner bottom-left"></div>
+        <div class="cyber-corner bottom-right"></div>
+
+        <div class="results-header">
+          <div class="result-badge-pill" id="resultPillBadge">QUIZ FINALIZADO</div>
+          <h2 id="resultsTitle" class="results-title">Desempenho em Cybersegurança</h2>
+          <p class="results-subtitle" id="resultMessageDesc">Confira sua pontuação e o nível de proteção dos seus hábitos digitais.</p>
+        </div>
+
+        <!-- Score Showcase -->
+        <div class="score-showcase">
+          <div class="score-circle-wrapper">
+            <svg class="score-circle-svg" viewBox="0 0 160 160">
+              <circle class="score-circle-bg" cx="80" cy="80" r="70" />
+              <circle class="score-circle-progress" id="scoreCircleProgress" cx="80" cy="80" r="70" />
+            </svg>
+            <div class="score-center-text">
+              <span class="score-big" id="finalScoreText">0</span>
+              <span class="score-total">/ 10</span>
+            </div>
+          </div>
+
+          <div class="result-evaluation">
+            <span class="eval-tag" id="evalTag">DIAGNÓSTICO</span>
+            <h3 class="eval-title" id="evalTitle">Carregando avaliação...</h3>
+            <p class="eval-desc" id="evalDesc">Avaliação personalizada com base nas respostas.</p>
+            <div class="stats-pills">
+              <div class="stat-pill success-pill">
+                <span class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                <span id="correctStatsCount">0</span> Acertos
+              </div>
+              <div class="stat-pill error-pill">
+                <span class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </span>
+                <span id="wrongStatsCount">0</span> Erros
+              </div>
+              <div class="stat-pill percent-pill">
+                <span class="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="20" x2="12" y2="10"/>
+                    <line x1="18" y1="20" x2="18" y2="4"/>
+                    <line x1="6" y1="20" x2="6" y2="16"/>
+                  </svg>
+                </span>
+                <span id="percentageStat">0%</span> Aproveitamento
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Section -->
+        <div class="review-section">
+          <div class="review-header-bar">
+            <h3 class="review-title">Revisão Detalhada das 10 Perguntas</h3>
+            <span class="review-note">Veja o gabarito e as explicações de cada slide</span>
+          </div>
+
+          <div class="review-list" id="reviewQuestionsList">
+            <!-- Populated via script.js -->
+          </div>
+        </div>
+
+        <!-- Result Action Buttons -->
+        <div class="results-actions">
+          <button id="restartQuizBtn" class="cyber-btn primary-btn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <polyline points="23 20 23 14 17 14"></polyline>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>
+            <span>REFAZER O QUIZ</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
