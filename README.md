@@ -26,6 +26,7 @@ Este repositório contém um site simples de quiz (HTML/CSS/JavaScript) que test
    - Com Python 3:
      python3 -m http.server 8000
      Depois acesse http://localhost:8000
+4. Site: https://quiz-projeto-integrador.vercel.app
 
 ## Como usar
 - Abra o site no navegador.
@@ -33,16 +34,5 @@ Este repositório contém um site simples de quiz (HTML/CSS/JavaScript) que test
 - Ao final, veja sua pontuação e o feedback.
 - Use o botão "Reiniciar" para fazer o quiz novamente.
 
-## Contribuições
-Contribuições são bem-vindas. Abra uma issue para sugerir melhorias ou crie um pull request com:
-- correções de texto ou tradução,
-- novas perguntas/temas,
-- melhorias no layout ou acessibilidade.
-
-Se for adicionar perguntas, busque o arquivo responsável (por exemplo `questions.js` ou similar) e mantenha o mesmo formato.
-
-## Licença
-Você pode adicionar uma licença ao projeto (ex.: MIT). Se quiser, posso sugerir um arquivo LICENSE padrão.
-
 ## Autor / Contato
-Diogo0l — Desenvolvido como Projeto Integrador do curso Assistente de TI (SENAC).
+Diogo Lugano — Desenvolvido como Projeto Integrador do curso Assistente de TI (SENAC).
